@@ -1,0 +1,19 @@
+e1 ^ b1 = c1 => e1 = c1^b1
+e2 ^ b2 = c2 => e2 = c2^b2
+....
+
+16 byte block = 
+
+
+OBSERVATION! IV is the same, cause step-up id False
+ ==>
+e1 == e2 == ... == en == e
+
+e^b1 = c1
+e^b2 = c2
+e^b3 = c3
+
+Because it is a png file, we know b1 ==> e = c1^b1
+
+This is an instruction for Linux to view contents of a png file in hex format:
+    hexdump -C aes.png

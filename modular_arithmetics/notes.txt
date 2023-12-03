@@ -1,0 +1,67 @@
+## Fermat's little theorem ##
+  a^x % x == a
+ =>>>> where it's useful
+
+ a^(x-1) % x == 1
+ a^(x) % x == a
+ a^(x+1) % x == a^2 % x
+ a^(x-1 + n) % x == a^n % xs
+
+
+## Square root modulo an integer ##
+For roughly half of the elements there is NO square root!!!
+
+x - Quadratic residue if it has square root modulo p (QR)
+x - Quadratic non-residue it it hasn't got a square root modulo p (QNR)
+
+### LEGENDRE SYMBOL ###
+
+We take p as prime.
+
+QR * QR = QR
+QR * QNR = QNR
+QNR * QNR = QR
+
+Legendre Symbol: For p ## prime ## and ## odd ##!!!
+ -----  (a/p) = a^[(p-1)/2] mod p -----
+Case 1: If a/p == 1  ==> (a QR) and (a != 0 mod p)
+Case 2: If a/p == -1 ==> (a QNR)
+Case 3: If a/p == 0  ==> a = 0 mod p
+
+=>> Given any integer [a], by calculating pow(a, (p-1)//2, p) is enough to determine if a is a QR!!!
+
+To find the square root : 
+a^((p-1)/2)  == 1
+a^((p+1)/2) == a
+a^((p+1)/4) == sqrt(a)
+
+-- https://eli.thegreenplace.net/2009/03/07/computing-modular-square-roots-in-python
+-- remember this:
+if x^2 == q:
+x = {
+  q^(k+1) mod p , p =  4k+3
+  q^(k+1) mod p,  p = 8k + 5 and q^2k+1 == 1
+  1/2[(4q)^(k-1)]*(p+1) mod p , p = 8k + 5 and q^2k+1 == -1
+}
+
+### Tonneli-Sharks algorithm for finding square roots ###
+OBSERVATION: All primes except 2 are of the form p == 4k+1 or p == 4k+3
+It works only for prime modulus values of p
+You can use sympy's sqrt_mod to quickly calculate it
+
+
+### CHINESE REMAINDER THEOREM ###
+For a set ai of arbirary integers, and ni pairwise coprime integers, such that:
+x = a1 mod n1
+x = a2 mod n2
+x = a3 mod n3
+.............
+x = an mod nn
+
+=> There exists unique solutin x == a mod N, where N = n1*n2*...*nn 
+
+
+The solution a is :
+!!! a = Sum(ai*Ni*di), where Ni = N/ni, and di = Ni^(-1) mod (ni)
+
+IN Crypto.Util.number you have the inverse() function which returns the inverse of a number mod N !!!!

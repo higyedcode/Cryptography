@@ -1,0 +1,12 @@
+Common encoding schemes:
+- ASCII encoding scheme (storing them as integers equivalent to ASCII characters)
+
+
+- ASCII hex encoding(storing them as a big string of hexadecimals)
+
+
+- Base64 : one character == 6 bits, 4 characters == 3 bytes;
+commonly used online, for images to be included into HTML or CSS.
+#Python: 
+--import base64
+--base64.b64encode()

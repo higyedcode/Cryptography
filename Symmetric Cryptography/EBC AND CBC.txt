@@ -1,0 +1,38 @@
+111111111111111c rypto{...}
+111111111111111[a-z*@/] rypto{}
+
+1111111111111111 crypto{p3n6u1n5_ ----
+1111111111111111 crypto{p3n6u1n5_ ---- 
+
+
+b1 b2 b3 -> 16 bytes size blocks both in ECB, CBC
+c1 c2 c3
+d1 d2 d3
+
+d3=c2^b3 ==> ^c2 = b3
+d2=c1^b2 ==> ^c1 = b2
+d1=v^b1  ==> 
+
+
+b3 = crypto{3cb_5uck5_4v01d_17_!!!!!}
+
+In CBC, the ouptut cyphertext is : IVc1c2c3..., so the first 16byte block is the IV vector!!!
+
+
+FLipping COokie:
+
+admin=False;expi  ry={1682760235}
+
+b1 b2
+c1 c2
+d1 d2
+
+d2 = b2^c1 => ^c1 == b2
+d1 = b1^v1 => ^v1 == b1
+
+To get the b1 == d1 ^ iv, if we modify the iv to get b1='admin=True' => good
+
+b'admin=False;expi'
+b''
+
+xor(a,b) = 'admin=True'

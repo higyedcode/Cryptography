@@ -1,0 +1,32 @@
+b1 b2 b3
+c1 c2 c3
+
+c1 = b1 ^ encrypt(iv,1)
+c2 = b2 ^ encrypt(iv,2)
+
+iv ^ 00000000 = iv => we can find iv encrypted once, twice, 3 times ,,...
+
+f1 f2 f3
+^  ^  ^
+v1 v2 v3
+c1 c2 c3 
+
+c1 = f1 ^ v1 ==> f1 = c1 ^ v1
+
+OR other solution!
+
+f1 f2 f3
+^  ^  ^
+v1 v2 v3
+c1 c2 c3 
+
+c1 = f1 ^ v1
+c2 = f2 ^ v2
+c3 = f3 ^ v3
+
+f1^v1  f2 ^ v2  f3 ^ v3
+^v1    ^v2         ^v3
+f1       f2           f3
+
+
+IN OFB mode if you encryipt it twice you retrieve the FLAG because XOR twice is equal to 0!!!!

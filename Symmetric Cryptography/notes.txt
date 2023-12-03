@@ -1,0 +1,31 @@
+Symmetric Key Cyphers - using one key to both encrypt and decrypt data
+
+###  AES - Advanced Encryption Standard  ###
+Symmetric key Cyphers:
+1. Block Cyphers - split plaintext into blocks, and send them through encryption with a secret key
+2. Stream Cyphers - encrypt one bit of plaintext at a time, XOR-ing a pseudo-random keystream with the data
+
+AES - block cypher, but can be turned into stream cypher using modes of operation such as CTR.
+
+
+###  Keyed Permutations  ###
+
+AES - maps every possible input block to a unique output block, with a key determining which Permutation to perform.
+"block" = fixed nr of bits/bytes. We will talk about AES-128, working on 128 bit(16 byte) blocks and 128 bit key.
+
+### Resisting Bruteforce ###
+Cypher is "broken" if it can be revealed in less steps then bruteforcing it.
+For AES - there exists only one that brings it down to 126.8 bits, but nothing less. So it's pretty safe. Also, maybe quantum computers can bring down AES to half the nr of bits, so that's why it's advised, for the future, to be used AES-256.
+
+### Structure of AES ###
+(initial) state == block to encrypt
+Phases of the AES:
+- From the key -> 11 separate 128bit "round keys" are derived, to be used in each AddRoundKey step
+- XOR the bytes of the round keys with the bytes of the state
+- (x10) substitute bytes with correspondent in lookup table("S-box"),
+Shift Rows, Mix Columns, Xor with round key.
+- Final step, Sub Bytes, Shift Rows, Xor With key
+
+
+
+
